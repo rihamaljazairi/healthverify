@@ -1,0 +1,61 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return signedIn()
+        && firestore.exists(/databases/(default)/documents/users/$(request.auth.uid))
+        && firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.role == "admin";
+    }
+
+    function isImageOrPdf() {
+      return request.resource.contentType.matches("image/.*")
+        || request.resource.contentType == "application/pdf";
+    }
+
+    function maxFileSize() {
+      return request.resource.size < 10 * 1024 * 1024;
+    }
+
+    match /avatars/{userId}/{fileName} {
+      allow read: if signedIn();
+      allow write: if signedIn()
+        && request.auth.uid == userId
+        && isImageOrPdf()
+        && maxFileSize();
+    }
+
+    match /documents/{userId}/{fileName} {
+      allow read: if isAdmin() || request.auth.uid == userId;
+      allow write: if signedIn()
+        && request.auth.uid == userId
+        && isImageOrPdf()
+        && maxFileSize();
+    }
+
+    match /licenses/{userId}/{fileName} {
+      allow read: if isAdmin() || request.auth.uid == userId;
+      allow write: if signedIn()
+        && request.auth.uid == userId
+        && isImageOrPdf()
+        && maxFileSize();
+    }
+
+    match /selfies/{userId}/{fileName} {
+      allow read: if isAdmin() || request.auth.uid == userId;
+      allow write: if signedIn()
+        && request.auth.uid == userId
+        && request.resource.contentType.matches("image/.*")
+        && maxFileSize();
+    }
+
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+# ==========================================
+# ANDROID - GITIGNORE
+# ==========================================
+
+# Android build outputs
+.gradle/
+build/
+
+# Local Android configuration
+/local.properties
+/.idea/
+*.iml
+
+# Native build/generated files
+/captures/
+/.externalNativeBuild/
+/.cxx/
+
+/app/.cxx/
+/app/build/
+
+# Keep Android source code
+!/app/src/
+!/app/src/main/
+!/app/src/main/java/
+!/app/src/main/java/**
+
+# Keep Gradle wrapper files tracked

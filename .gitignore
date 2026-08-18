@@ -1,0 +1,217 @@
+# ==========================================
+# HEALTHVERIFY - GITIGNORE
+# ==========================================
+
+
+# ==========================================
+# ENVIRONMENT VARIABLES / SECRETS
+# ==========================================
+
+.env
+.env.*
+!.env.example
+
+
+# ==========================================
+# AI AGENT / LOCAL TOOLING
+# ==========================================
+
+.agents/
+
+
+# ==========================================
+# NODE / REACT / VITE
+# ==========================================
+
+node_modules/
+dist/
+build/
+.vite/
+
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+*.local
+
+
+# ==========================================
+# PYTHON / FLASK
+# ==========================================
+
+__pycache__/
+*.py[cod]
+*.pyo
+
+.venv/
+venv/
+env/
+ENV/
+
+.pytest_cache/
+.mypy_cache/
+
+*.egg-info/
+
+
+# ==========================================
+# FLASK / PYTHON TEMPORARY FILES
+# ==========================================
+
+instance/
+.pyre/
+.pytype/
+
+*.pid
+*.pid.lock
+
+
+# ==========================================
+# FLUTTER / DART
+# ==========================================
+
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+
+.pub-cache/
+.pub/
+
+build/
+
+# Flutter generated files
+**/GeneratedPluginRegistrant.*
+**/flutter_export_environment.sh
+
+
+# ==========================================
+# FIREBASE / GOOGLE CREDENTIALS
+# ==========================================
+
+# Firebase / Google private service-account credentials
+serviceAccountKey.json
+service-account.json
+firebase-adminsdk-*.json
+google-services-private-key.json
+
+# Firebase Android client configuration
+android/app/google-services.json
+
+# Flutter Firebase configuration
+lib/firebase_options.dart
+
+# Firebase emulator/debug files
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+
+
+# ==========================================
+# AI MODEL FILES
+# ==========================================
+
+# Large local face-recognition / AI model files
+public/models/
+
+
+# ==========================================
+# IDE / EDITOR
+# ==========================================
+
+.idea/
+*.iml
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+*.swp
+*.swo
+*~
+
+
+# ==========================================
+# OPERATING SYSTEM
+# ==========================================
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+
+# ==========================================
+# LOGS
+# ==========================================
+
+*.log
+logs/
+
+
+# ==========================================
+# TEMPORARY FILES
+# ==========================================
+
+tmp/
+temp/
+uploads/
+
+*.tmp
+*.temp
+
+
+# ==========================================
+# LOCAL DATABASES
+# ==========================================
+
+*.db
+*.sqlite
+*.sqlite3
+
+
+# ==========================================
+# TEST / COVERAGE OUTPUT
+# ==========================================
+
+coverage/
+.coverage
+htmlcov/
+
+
+# ==========================================
+# GENERATED / CACHE FILES
+# ==========================================
+
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+
+
+# ==========================================
+# OS / BUILD ARTIFACTS
+# ==========================================
+
+*.exe
+*.dll
+*.so
+*.dylib
+
+
+# ==========================================
+# BACKUP FILES
+# ==========================================
+
+*.bak
+*.backup
+*.old
+
+
+# ==========================================
+# PERSONAL / LOCAL CONFIGURATION
+# ==========================================
+
+local/
+.local/
